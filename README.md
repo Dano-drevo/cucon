@@ -57,8 +57,9 @@ optional arguments:
 - - - -
 
 Web API string query arguments: 
-
+```
 ?incurr=<input currency>&outcurr=<output currency>&amount=<amount to convert>&update&available
+```
 If there is present 'available' argument, server responds with JSON of available currency codes.
 Otherwise only required argument when making a currency conversion request is 'incurr'.
 
