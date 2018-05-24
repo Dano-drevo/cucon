@@ -1,5 +1,5 @@
 # CUCON - Currency Converter Naive #
-Entry task for a junior python developer position at KIWI.com
+Entry task for a junior python developer position at **KIWI.com**
 - - - -
 ## About ##
 CLI currency converter application and web API written in Python 
@@ -16,7 +16,7 @@ CLI currency converter application and web API written in Python
 * flask
 * gunicorn
 
-_You can install those by 'sudo pip install [redis|flask|gunicorn]' or use 'pip3' if your default python version is 2.X_
+You can install those by '_sudo pip install [redis|flask|gunicorn]_' or use 'pip3' if your default python version is 2.X
 This was tested on:
 * gunicorn 19.8.1
 * Python 3.5.2
