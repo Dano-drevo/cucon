@@ -84,7 +84,7 @@ If there is present 'available' argument, server responds with JSON of available
 Otherwise the only required argument when making a currency conversion request is 'incurr'.
 
 ### EXAMPLES: ###
-```python
+```bash
 ./converter.py --amount 100.0 --input_currency EUR --output_currency czk
 ./converter.py --input_currrency $
 ./converter.py -i ¥ -o aud -a 0.9
@@ -118,7 +118,7 @@ If the operation within cucon hasn't been completed successfully, JSON with foll
 {"msg" : "Message with some further information", "status_code" : <response status code>}
 ```
 - - - -
-## Supported currency codes table with optional unicode symbol s##
+## Supported currency codes table with optional unicode symbol 
 See [Supported currency codes table](currency_codes.md)
 - - - -
 ##  Note ##
