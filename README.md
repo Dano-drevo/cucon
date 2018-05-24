@@ -10,7 +10,7 @@ CLI currency converter application and web API written in Python
 *Redis
 *redis-server
 ### Web API: ###
-*Python 3.X
+⋅⋅Python 3.X
 *Redis
 *redis-server
 *flask
