@@ -63,7 +63,7 @@ Web API string query arguments:
 If there is present 'available' argument, server responds with JSON of available currency codes.
 Otherwise only required argument when making a currency conversion request is 'incurr'.
 
-EXAMPLES:
+### EXAMPLES: ###
 ```
 GET /cucon/?amount=0.9&incurr=¥&outcurr=AUD HTTP/1.1
 GET /cucon/?incurr=£ HTTP/1.1
@@ -87,7 +87,7 @@ If the operation hasn't been completed successfully, JSON with following structu
 {"msg" : "Message with some further information", "status_code" : <response status code>}
 ```
 - - - -
-## Supported currency codes table with optional unicode symbols##
+## Supported currency codes table with optional unicode symbol s##
 COMMING SOON
 - - - -
 ##  Note ##
