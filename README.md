@@ -85,7 +85,8 @@ GET <host_address>/cucon/?incurr=£ HTTP/1.1
 GET <host_address>/cucon/?incurr=usd&update HTTP/1.1
 GET <host_address>/cucon?available HTTP/1.1
 ```
-The output looks the same in both cases: It's **JSON** that looks like the following structure:
+- - - -
+The output is the same in both cases: It's **JSON** that looks like the following structure:
 
 ```
 {
