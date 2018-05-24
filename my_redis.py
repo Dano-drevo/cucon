@@ -74,7 +74,7 @@ class My_redis():
 
 #method that creates the Server instance and menage the set/get data process   
     def set_rates(self): 
-        response, status = Server().get_server_response(self.from_curr)
+        response = Server().get_server_response(self.from_curr)
         response_dic = loads(response.text)
         status = response.status_code 
         if status != 200:
