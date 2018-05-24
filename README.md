@@ -6,23 +6,23 @@ CLI currency converter application and web API written in Python
 - - - -
 ## Requirements ##
 ### CLI: ###
-*Python 3.X
-*Redis
-*redis-server
+* Python 3.X
+* Redis
+* redis-server
 ### Web API: ###
-⋅⋅Python 3.X
-*Redis
-*redis-server
-*flask
-*gunicorn
+* Python 3.X
+* Redis
+* redis-server
+* flask
+* gunicorn
 
 _You can install those by 'sudo pip install [redis|flask|gunicorn]' or use 'pip3' if your default python version is 2.X_
 This was tested on:
-*gunicorn 19.8.1
-*Python 3.5.2
-*Redis server 3.0.6
-*Redis 2.10.6
-*flask 1.0.2
+* gunicorn 19.8.1
+* Python 3.5.2
+* Redis server 3.0.6
+* Redis 2.10.6
+* flask 1.0.2
 - - - -
 ## Source of conversion rates ##
 cucon itself is using web API and in this application, it is API provided by **fixer.io** Its API stores currency rates for more than 168 currencies.
@@ -92,7 +92,7 @@ COMMING SOON
 ##  Note ##
 This is just the most basic configuration for this purpose. If you want to use this tool in serious production, consider using gunicorn more widely with asynchronous workers, more options and ideally(recommended) deployed on nginx or other robust HTTP server.
 
-redis: <https://redis.io/>
-gunicorn: <http://gunicorn.org/>
-gevent: <http://www.gevent.org/>
-nginx: <https://www.nginx.com/>
+* redis: <https://redis.io/>
+* gunicorn: <http://gunicorn.org/>
+* gevent: <http://www.gevent.org/>
+* nginx: <https://www.nginx.com/>
