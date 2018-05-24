@@ -65,6 +65,15 @@ Otherwise only required argument when making a currency conversion request is 'i
 
 ### EXAMPLES: ###
 ```
+./converter.py --amount 100.0 --input_currency EUR --output_currency CZK
+./converter.py --input_currrency $
+./converter.py -i ¥ -o aud -a 0.9
+./converter.py -i ¥ -o £ -a 1221 -u
+./converter.py -l
+
+```
+
+```
 GET /cucon/?amount=0.9&incurr=¥&outcurr=AUD HTTP/1.1
 GET /cucon/?incurr=£ HTTP/1.1
 GET /cucon/?incurr=usd&update HTTP/1.1
