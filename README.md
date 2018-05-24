@@ -2,7 +2,7 @@
 Entry task for a junior python developer position at **KIWI.com**
 - - - -
 ## About ##
-CLI currency converter application and web API written in Python 
+CLI currency converter application and web API with the very same function, both written in Python.
 - - - -
 ## Requirements ##
 ### CLI: ###
@@ -16,21 +16,30 @@ CLI currency converter application and web API written in Python
 * flask
 * gunicorn
 
-You can install those by '_sudo pip install [redis|flask|gunicorn]_' or use 'pip3' if your default python version is 2.X
-This was tested on:
+You can install those by following command:
+```bash
+sudo pip install [redis|redis-server|flask|gunicorn]
+```
+or
+```bash
+sudo pip3 install [redis|redis-server|flask|gunicorn]
+```
+if your default python version is 2.X
+- - - - - - - -
+Cucon was tested on:
 * gunicorn 19.8.1
 * Python 3.5.2
-* Redis server 3.0.6
+* redis-server 3.0.6
 * Redis 2.10.6
 * flask 1.0.2
 - - - -
 ## Source of conversion rates ##
-cucon itself is using web API and in this application, it is API provided by **fixer.io** Its API stores currency rates for more than 168 currencies.
+Cucon itself is using web API and in this application, it is API provided by [**fixer.io**](https://fixer.io/ "See fixer page!"). Its API stores currency rates for more than 168 currencies.
 You can see more on <https://github.com/fixerAPI/fixer/>
 - - - -
 ## Usage and functionality ##
 Execute CLI with [-h|--help] flag to display program usage shown below.
-```
+```bash
 ./converter.py -h
 ```
 
@@ -58,37 +67,42 @@ optional arguments:
 
 Web API string query arguments: 
 ```
-?incurr=<input currency>&outcurr=<output currency>&amount=<amount to convert>&update&available
+?available
+&
+incurr=<input currency>
+&
+outcurr=<output currency>
+&
+amount=<amount to convert>
+&
+update 
+&
+latest 
 ```
+where _(/?latest == /?update)_<br/>
 If there is present 'available' argument, server responds with JSON of available currency codes.
-Otherwise only required argument when making a currency conversion request is 'incurr'.
+Otherwise the only required argument when making a currency conversion request is 'incurr'.
 
 ### EXAMPLES: ###
-## CLI ##
-```
-./converter.py --amount 100.0 --input_currency EUR --output_currency CZK
+```python
+./converter.py --amount 100.0 --input_currency EUR --output_currency czk
 ./converter.py --input_currrency $
 ./converter.py -i ¥ -o aud -a 0.9
 ./converter.py -i ¥ -o £ -a 1221 -u
 ./converter.py -l
 
 ```
-## Web API ##
-1. Start web server
-```
-./start.sh
-```
-2. Make http request
-```
-GET <host_address>/cucon/?amount=0.9&incurr=¥&outcurr=AUD HTTP/1.1
-GET <host_address>/cucon/?incurr=£ HTTP/1.1
-GET <host_address>/cucon/?incurr=usd&update HTTP/1.1
-GET <host_address>/cucon?available HTTP/1.1
-```
-- - - -
-The output is the same in both cases: It's **JSON** that looks like the following structure:
 
 ```
+GET /cucon/?amount=0.9&incurr=¥&outcurr=AUD HTTP/1.0
+GET /cucon/?incurr=£ HTTP/1.0
+GET /cucon/?incurr=£ HTTP/1.0latest
+GET /cucon/?incurr=usd&update HTTP/1.0
+GET /cucon?available HTTP/1.0
+```
+- - - - - - - -
+```
+The output looks the same in both cases: It's JSON that looks with following structure:
 {
     "input": { 
         "amount": <float>,
@@ -105,12 +119,13 @@ If the operation within cucon hasn't been completed successfully, JSON with foll
 ```
 - - - -
 ## Supported currency codes table with optional unicode symbol s##
-COMMING SOON
+See [Supported currency codes table](currency_codes.md)
 - - - -
 ##  Note ##
-This is just the most basic configuration for this purpose. If you want to use this tool in serious production, consider using gunicorn more widely with asynchronous workers, more options and ideally(recommended) deployed on nginx or other robust HTTP server.
+This is just the most basic configuration for this purpose. If you want to use this tool in a serious production, consider using gunicorn more widely with the asynchronous workers, more running options and ideally(recommended) deployed on nginx, apache or other robust HTTP server.
 
-* redis: <https://redis.io/>
-* gunicorn: <http://gunicorn.org/>
-* gevent: <http://www.gevent.org/>
-* nginx: <https://www.nginx.com/>
+* [flask](http://flask.pocoo.org/)
+* [redis](https://redis.io/)
+* [gunicorn](http://gunicorn.org/)
+* [gevent](http://www.gevent.org/)
+* [nginx](https://www.nginx.com/)
