@@ -64,6 +64,7 @@ If there is present 'available' argument, server responds with JSON of available
 Otherwise only required argument when making a currency conversion request is 'incurr'.
 
 ### EXAMPLES: ###
+## CLI ##
 ```
 ./converter.py --amount 100.0 --input_currency EUR --output_currency CZK
 ./converter.py --input_currrency $
@@ -72,15 +73,21 @@ Otherwise only required argument when making a currency conversion request is 'i
 ./converter.py -l
 
 ```
+## Web API ##
+1. Start web server
+```
+./start.sh
+```
+2. Make http request
+```
+GET <host_address>/cucon/?amount=0.9&incurr=¥&outcurr=AUD HTTP/1.1
+GET <host_address>/cucon/?incurr=£ HTTP/1.1
+GET <host_address>/cucon/?incurr=usd&update HTTP/1.1
+GET <host_address>/cucon?available HTTP/1.1
+```
+The output looks the same in both cases: It's **JSON** that looks like the following structure:
 
 ```
-GET /cucon/?amount=0.9&incurr=¥&outcurr=AUD HTTP/1.1
-GET /cucon/?incurr=£ HTTP/1.1
-GET /cucon/?incurr=usd&update HTTP/1.1
-GET /cucon?available HTTP/1.1
-```
-```
-The output looks the same in both cases: It's JSON that looks with following structure:
 {
     "input": { 
         "amount": <float>,
@@ -91,7 +98,7 @@ The output looks the same in both cases: It's JSON that looks with following str
     }
 }
 ```
-If the operation hasn't been completed successfully, JSON with following structure is returned:
+If the operation within cucon hasn't been completed successfully, JSON with following structure is returned:
 ```
 {"msg" : "Message with some further information", "status_code" : <response status code>}
 ```
