@@ -1,0 +1,6 @@
+gunicorn==19.8.1
+Python==3.5.2
+redis-server==3.0.6
+Redis==2.10.6
+flask==1.0.2
+
