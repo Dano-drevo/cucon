@@ -3,6 +3,13 @@ Entry task for a junior python developer position at **KIWI.com**
 - - - -
 ## About ##
 CLI currency converter application and web API with the very same function, both written in Python.
+<br/>
+<br/>
+The program accepts input and then searches for given base in redis database, if the key is not found, cucon obtains the latest rates by the HTTP request to fixer.io and stores them to a redis database with the pre-set expiration date according to the update frequency.
+<br/>
+If the key exceeds its expiration time, redis will automatically delete it along with the rates. Update frequency is 1 hour minimum because hour is the update frequency of the source rates themselves. The [--update|-u] or [latest|update] argument in CLI or API(respectively), forces updating even if the key still exists and rates are 'up to date'. However, the rates are thus updated only if they are older than one hours.
+
+When starting the API, we use gunicorn to create various synchronious workers(separate processes) to single-handle requests sent to the server. 
 - - - -
 ## Requirements ##
 ### CLI: ###
@@ -80,8 +87,8 @@ update
 latest 
 ```
 where _(/?latest == /?update)_<br/>
-If there is present 'available' argument, server responds with JSON of available currency codes.
-Otherwise the only required argument when making a currency conversion request is 'incurr'.
+If there is present '**available**' argument, server responds with the JSON of available currency codes.
+Otherwise the only required argument when making a currency conversion request is '**incurr**'.
 
 ### EXAMPLES: ###
 ```bash
@@ -102,7 +109,7 @@ GET /cucon?available HTTP/1.0
 ```
 - - - - - - - -
 ```
-The output looks the same in both cases: It's JSON that looks with following structure:
+The output looks the same in both cases: It's JSON that looks like this:
 {
     "input": { 
         "amount": <float>,
@@ -113,12 +120,12 @@ The output looks the same in both cases: It's JSON that looks with following str
     }
 }
 ```
-If the operation within cucon hasn't been completed successfully, JSON with following structure is returned:
+If the operation within cucon hasn't been completed successfully, JSON with the following structure is returned:
 ```
 {"msg" : "Message with some further information", "status_code" : <response status code>}
 ```
 - - - -
-## Supported currency codes table with optional unicode symbol 
+## Supported currency codes table with the optional unicode symbols 
 See [Supported currency codes table](currency_codes.md)
 - - - -
 ##  Note ##
