@@ -91,6 +91,7 @@ If there is present '**available**' argument, server responds with the JSON of a
 Otherwise the only required argument when making a currency conversion request is '**incurr**'.
 
 ### EXAMPLES: ###
+#### CLI ####
 ```bash
 ./converter.py --amount 100.0 --input_currency EUR --output_currency czk
 ./converter.py --input_currrency $
@@ -99,7 +100,12 @@ Otherwise the only required argument when making a currency conversion request i
 ./converter.py -l
 
 ```
-
+#### API ####
+1. Start gunicorn
+```bash
+./start.sh
+```
+2. Make an HTTP request
 ```
 GET /cucon/?amount=0.9&incurr=¥&outcurr=AUD HTTP/1.0
 GET /cucon/?incurr=£ HTTP/1.0
