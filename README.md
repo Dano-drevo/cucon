@@ -12,6 +12,7 @@ If the key exceeds its expiration time, redis will automatically delete it along
 When starting the API, we use gunicorn to create various synchronious workers(separate processes) to single-handle requests sent to the server. 
 - - - -
 ## Requirements ##
+#### fixer.io private access key ####
 ### CLI: ###
 * Python 3.X
 * Redis
